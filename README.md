@@ -1,33 +1,43 @@
-### Analytical
+## Analytical
 
-A place where you can put your own data and view it seamlessly!
+`analytic_tracker` is a Frappe app package whose product title is `Analytical`. It is currently registered in the Desk apps screen with a launcher entry that points to `/app/analytics-dashboard-builder`.
 
-### Installation
+## Current Status
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+This repository currently contains the app scaffold, metadata, and app registration hooks. Based on the local repo context, there is no separate end-user feature guide or public API documentation in the app itself yet, so this README is intentionally limited to setup and development notes.
+
+## Installation
+
+Install the app into a Frappe bench the usual way:
 
 ```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch master
-bench install-app analytic_tracker
+cd /path/to/your/bench
+bench get-app /path/to/analytic_tracker
+bench --site your-site.local install-app analytic_tracker
+bench --site your-site.local migrate
 ```
 
-### Contributing
+If the app is already present in `apps.txt`, you only need the `install-app` and `migrate` steps.
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+## Development
+
+The app metadata is defined in `analytic_tracker/hooks.py`, and packaging details live in `pyproject.toml`.
+
+For local changes:
 
 ```bash
 cd apps/analytic_tracker
 pre-commit install
 ```
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+The repository is configured around standard Frappe app development conventions and the existing Python formatting/linting setup in `pyproject.toml`.
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
+Before opening a change, run the checks that apply to the files you touched and verify that the app still installs and migrates on a bench site.
 
-### License
+## Contributing
 
-mit
+Keep changes scoped to the app package and update this README if you add real user-facing functionality, installation steps, or operational requirements.
+
+## License
+
+MIT
