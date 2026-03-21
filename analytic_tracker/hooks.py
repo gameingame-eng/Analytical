@@ -11,15 +11,15 @@ app_license = "mit"
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "analytic_tracker",
-# 		"logo": "/assets/analytic_tracker/logo.png",
-# 		"title": "Analytical",
-# 		"route": "/analytic_tracker",
-# 		"has_permission": "analytic_tracker.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "analytic_tracker",
+		"logo": "/assets/analytic_tracker/analytical-logo.svg",
+		"title": "Analytical",
+		"route": "/app/analytics-dashboard-builder",
+		"has_permission": "analytic_tracker.api.has_app_permission",
+	}
+]
 
 # Includes in <head>
 # ------------------
@@ -249,4 +249,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
