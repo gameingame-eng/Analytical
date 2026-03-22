@@ -17,6 +17,7 @@ import User from './pages/user';
 const AuthScreen = ({ isSubmitting, error, onSubmit }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [showPassword, setShowPassword] = useState(false);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -34,7 +35,7 @@ const AuthScreen = ({ isSubmitting, error, onSubmit }) => {
 						Sign in with your Frappe account to open the dashboard workspace.
 					</h1>
 					<p className="max-w-xl text-base text-slate-300 sm:text-lg">
-						This frontend uses the real Frappe session. Enter the email and
+						This frontend uses the real Frappe session. Enter the login ID and
 						password for an existing account on the site to continue.
 					</p>
 				</section>
@@ -43,26 +44,35 @@ const AuthScreen = ({ isSubmitting, error, onSubmit }) => {
 					<form className="space-y-5" onSubmit={handleSubmit}>
 						<div className="space-y-2">
 							<label className="text-sm font-medium text-slate-200" htmlFor="email">
-								Email
+								ID
 							</label>
 							<input
 								id="email"
-								type="email"
+								type="text"
 								value={email}
 								onChange={(event) => setEmail(event.target.value)}
 								className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-50 outline-none transition focus:border-cyan-400"
-								autoComplete="email"
+								autoComplete="username"
 								required
 							/>
 						</div>
 
 						<div className="space-y-2">
-							<label className="text-sm font-medium text-slate-200" htmlFor="password">
-								Password
-							</label>
+							<div className="flex items-center justify-between gap-3">
+								<label className="text-sm font-medium text-slate-200" htmlFor="password">
+									Password
+								</label>
+								<button
+									type="button"
+									onClick={() => setShowPassword((value) => !value)}
+									className="text-sm font-medium text-cyan-300 transition hover:text-cyan-200"
+								>
+									{showPassword ? 'Hide password' : 'Show password'}
+								</button>
+							</div>
 							<input
 								id="password"
-								type="password"
+								type={showPassword ? 'text' : 'password'}
 								value={password}
 								onChange={(event) => setPassword(event.target.value)}
 								className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-50 outline-none transition focus:border-cyan-400"
