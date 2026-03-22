@@ -1,0 +1,17 @@
+{
+	"extends": "@frappe-ui-react-starter/shared-config/typescript/react-library",
+	"compilerOptions": {
+    "jsx": "react",
+		"outDir": "./dist",
+		"lib": ["dom", "ES2015"],
+		"sourceMap": true,
+		"noEmit": false,
+		"allowImportingTsExtensions": false,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": ["src"],
+	"exclude": ["dist", "build", "node_modules", "**/*.stories.tsx", "storybook.d.ts"]
+}
