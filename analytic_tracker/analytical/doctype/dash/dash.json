@@ -1,40 +1,48 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "DSH-.DD.-.MM.-.YYYY.-.####.",
  "creation": "2026-03-21 21:00:52.485412",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "dashname",
-  "column_break_nueb",
+  "name_info",
+  "name_of_dash",
+  "column_break_kfyw",
   "data_type"
  ],
  "fields": [
   {
-   "fieldname": "dashname",
-   "fieldtype": "Data",
-   "label": "Dash Name"
-  },
-  {
-   "fieldname": "column_break_nueb",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "data_type",
    "fieldtype": "Select",
-   "label": "Data type",
-   "options": "\nBar chart\nColumn chart\nLine chart\nArea chart\nPie chart\nDonut chart\nScatter plot\nBubble chart\nHistogram"
+   "in_list_view": 1,
+   "label": "Type of Data",
+   "options": "\nCount\nSum\nAverage\nPercentage\nTime Series\nStatus Distribution\nCategory Distribution",
+   "reqd": 1
+  },
+  {
+   "fieldname": "name_info",
+   "fieldtype": "Section Break",
+   "label": "Name & Info"
+  },
+  {
+   "fieldname": "name_of_dash",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name of Dash",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_kfyw",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-21 21:00:52.485412",
+ "modified": "2026-03-21 23:33:51.732555",
  "modified_by": "Administrator",
  "module": "Analytical",
  "name": "Dash",
- "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
