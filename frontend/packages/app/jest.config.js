@@ -6,7 +6,7 @@ const config = {
 	testEnvironment: 'jsdom',
 	displayName: 'app',
 	rootDir: '.',
-	testMatch: ['<rootDir>/src/**/*.test.{ts,tsx}'],
+	testMatch: ['<rootDir>/src/**/*.test.{js,jsx}'],
 };
 
 export default config;

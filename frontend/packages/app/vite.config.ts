@@ -1,5 +1,5 @@
 /// <reference types="vitest/config" />
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, loadEnv, type ProxyOptions } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -24,20 +24,25 @@ export default defineConfig(({ mode }) => {
 			alias: {
 				'@': path.resolve(__dirname, './src'),
 			},
-		}
-	}
+		},
+	};
 });
-const getProxy = (mode: string) => {
+
+const getProxy = (
+	mode: string
+): Record<string, string | ProxyOptions> | undefined => {
 	const env = loadEnv(mode, "../../", "");
-	if (env.VITE_SITE_NAME && env.VITE_SITE_PORT) {
-		return {
-			"^/(app|api|assets|files|private|socket.io)": {
-				target: `http://${env.VITE_SITE_NAME}:${env.VITE_SITE_PORT}`,
-				ws: true,
-				changeOrigin: true,
-				secure: false,
-			},
-		};
+
+	if (!env.VITE_SITE_NAME || !env.VITE_SITE_PORT) {
+		return undefined;
 	}
-	return {}
-}
+
+	return {
+		"^/(app|api|assets|files|private|socket.io)": {
+			target: `http://${env.VITE_SITE_NAME}:${env.VITE_SITE_PORT}`,
+			ws: true,
+			changeOrigin: true,
+			secure: false,
+		},
+	};
+};
