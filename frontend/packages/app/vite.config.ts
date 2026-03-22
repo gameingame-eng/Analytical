@@ -39,7 +39,7 @@ const getProxy = (
 
 	return {
 		"^/(app|api|assets|files|private|socket.io)": {
-			target: `http://${env.VITE_SITE_NAME}:${env.VITE_SITE_PORT}`,
+			target: env.VITE_BASE_URL,
 			ws: true,
 			changeOrigin: true,
 			secure: false,
