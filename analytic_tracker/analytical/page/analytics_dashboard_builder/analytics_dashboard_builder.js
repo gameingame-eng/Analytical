@@ -1,11 +1,13 @@
 frappe.pages["analytics-dashboard-builder"].on_page_load = function (wrapper) {
+	const open_dashboards = () => frappe.set_route("List", "New Dash");
+
 	const page = frappe.ui.make_app_page({
 		parent: wrapper,
 		title: __("Analytics Dashboard Builder"),
 		single_column: true,
 	});
 
-	page.set_primary_action(__("New Dashboard"), () => frappe.new_doc("New Dash"));
+	page.set_primary_action(__("New Dashboard"), open_dashboards);
 	page.set_secondary_action(__("Dashboard Charts"), () => frappe.set_route("List", "Dashboard Chart"));
 
 	frappe.breadcrumbs.add("Analytical");
@@ -14,7 +16,7 @@ frappe.pages["analytics-dashboard-builder"].on_page_load = function (wrapper) {
 	$body.empty().append(frappe.render_template("analytics_dashboard_builder"));
 
 	const actions = {
-		".js-new-dashboard": () => frappe.new_doc("New Dash"),
+		".js-new-dashboard": open_dashboards,
 		".js-open-charts": () => frappe.set_route("List", "Dashboard Chart"),
 		".js-open-reports": () => frappe.set_route("List", "Report"),
 		".js-open-pages": () => frappe.set_route("List", "Page"),
