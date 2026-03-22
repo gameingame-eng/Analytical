@@ -9,8 +9,8 @@ frappe.pages["analytics-dashboard-builder"].on_page_load = function (wrapper) {
 	});
 
 	page.set_primary_action(__("New Dashboard"), open_dashboards);
-	page.add_action_item(__("View Dashboards"), open_dash_list);
-	page.set_secondary_action(__("Dashboard Charts"), () => frappe.set_route("List", "Dashboard Chart"));
+	page.add_action_item(__("View/Edit Dashboards"), open_dash_list);
+	page.set_secondary_action(__("Dashboard Entries"), open_dash_list);
 
 	frappe.breadcrumbs.add("Analytical");
 
@@ -19,7 +19,7 @@ frappe.pages["analytics-dashboard-builder"].on_page_load = function (wrapper) {
 
 	const actions = {
 		".js-new-dashboard": open_dashboards,
-		".js-open-charts": () => frappe.set_route("List", "Dashboard Chart"),
+		".js-open-charts": open_dash_list,
 		".js-open-reports": () => frappe.set_route("List", "Report"),
 		".js-open-pages": () => frappe.set_route("List", "Page"),
 	};
