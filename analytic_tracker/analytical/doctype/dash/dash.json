@@ -9,17 +9,11 @@
   "name_info",
   "name_of_dash",
   "column_break_kfyw",
-  "data_type"
+  "any_related_file",
+  "data_section",
+  "input_numbers"
  ],
  "fields": [
-  {
-   "fieldname": "data_type",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Type of Data",
-   "options": "\nCount\nSum\nAverage\nPercentage\nTime Series\nStatus Distribution\nCategory Distribution\nInteger",
-   "reqd": 1
-  },
   {
    "fieldname": "name_info",
    "fieldtype": "Section Break",
@@ -35,12 +29,29 @@
   {
    "fieldname": "column_break_kfyw",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "any_related_file",
+   "fieldtype": "Attach",
+   "label": "Any related file"
+  },
+  {
+   "fieldname": "data_section",
+   "fieldtype": "Section Break",
+   "label": "Data"
+  },
+  {
+   "fieldname": "input_numbers",
+   "fieldtype": "Table",
+   "label": "Input Numbers",
+   "options": "Integer Dash",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-22 12:20:54.579404",
+ "modified": "2026-03-22 16:24:16.687508",
  "modified_by": "Administrator",
  "module": "Analytical",
  "name": "Dash",
