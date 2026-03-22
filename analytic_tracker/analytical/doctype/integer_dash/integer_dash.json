@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-22 12:22:03.779735",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "option",
+  "column_break_gent",
+  "item_label"
+ ],
+ "fields": [
+  {
+   "fieldname": "option",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Value",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gent",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_label",
+   "fieldtype": "Data",
+   "label": "Label (Not Required)"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-22 12:27:12.547994",
+ "modified_by": "Administrator",
+ "module": "Analytical",
+ "name": "Integer Dash",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
