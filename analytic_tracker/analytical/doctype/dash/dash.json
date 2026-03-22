@@ -16,7 +16,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type of Data",
-   "options": "\nCount\nSum\nAverage\nPercentage\nTime Series\nStatus Distribution\nCategory Distribution",
+   "options": "\nCount\nSum\nAverage\nMinimum\nMaximum\nMedian\nPercentage\nDistinct Count\nRatio\nTime Series\nTrend\nStatus Distribution\nCategory Distribution\nRunning Total\nVariance",
    "reqd": 1
   },
   {
