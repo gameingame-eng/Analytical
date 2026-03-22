@@ -5,7 +5,7 @@ frappe.pages["analytics-dashboard-builder"].on_page_load = function (wrapper) {
 		single_column: true,
 	});
 
-	page.set_primary_action(__("New Dashboard"), () => frappe.new_doc("Dashboard"));
+	page.set_primary_action(__("New Dashboard"), () => frappe.new_doc("New Dash"));
 	page.set_secondary_action(__("Dashboard Charts"), () => frappe.set_route("List", "Dashboard Chart"));
 
 	frappe.breadcrumbs.add("Analytical");
