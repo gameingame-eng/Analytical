@@ -23,5 +23,8 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "frappe-react-sdk": "^1.14.0"
+  }
 }

@@ -1,15 +1,13 @@
 /**
  * External dependencies.
  */
-import { type ReactNode } from 'react';
-
 import { FrappeProvider as _FrappeProvider } from 'frappe-react-sdk';
 /**
  * Internal dependencies.
  */
 import { getSiteName, enableSocket } from '../utils';
 
-const FrappeProvider = ({ children }: { children: ReactNode }) => {
+const FrappeProvider = ({ children }) => {
 	return (
 		<_FrappeProvider
 			url={import.meta.env.VITE_BASE_URL ?? ''}
