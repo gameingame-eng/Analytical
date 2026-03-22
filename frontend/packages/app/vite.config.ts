@@ -14,7 +14,11 @@ export default defineConfig(({ mode }) => {
 		server: {
 			port: 6767, // Force dev server to always use 6767.
 			strictPort: true, // Fail if 5173 is already taken.
-			proxy: proxyConfig
+			proxy: proxyConfig,
+			watch: {
+				usePolling: true,
+				interval: 300,
+			},
 		},
 		resolve: {
 			alias: {
