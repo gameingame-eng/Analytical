@@ -1,5 +1,6 @@
 frappe.pages["analytics-dashboard-builder"].on_page_load = function (wrapper) {
-	const open_dashboards = () => frappe.set_route("List", "New Dash");
+	const open_dashboards = () => frappe.new_doc("Dash");
+	const open_dash_list = () => frappe.set_route("List", "Dash");
 
 	const page = frappe.ui.make_app_page({
 		parent: wrapper,
@@ -8,6 +9,7 @@ frappe.pages["analytics-dashboard-builder"].on_page_load = function (wrapper) {
 	});
 
 	page.set_primary_action(__("New Dashboard"), open_dashboards);
+	page.add_action_item(__("View Dashboards"), open_dash_list);
 	page.set_secondary_action(__("Dashboard Charts"), () => frappe.set_route("List", "Dashboard Chart"));
 
 	frappe.breadcrumbs.add("Analytical");
