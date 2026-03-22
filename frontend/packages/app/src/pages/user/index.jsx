@@ -1,10 +1,11 @@
 /**
  * External dependencies.
  */
+import { useEffect, useRef } from 'react';
 import { ListView, Avatar } from '@rtcamp/frappe-ui-react';
 import { useFrappeGetDocList } from 'frappe-react-sdk';
 
-const User = () => {
+const User = ({ onAuthError }) => {
 	const { data, error, isLoading } = useFrappeGetDocList('User', {
 		fields: ['name', 'full_name', 'email', 'user_image', 'enabled', 'user_type'],
 		orderBy: {
@@ -12,13 +13,27 @@ const User = () => {
 			order: 'asc',
 		},
 	});
+	const hasHandledAuthError = useRef(false);
+
+	useEffect(() => {
+		const statusCode = error?.httpStatus || error?.status || error?.statusCode;
+
+		if (statusCode === 403 && !hasHandledAuthError.current) {
+			hasHandledAuthError.current = true;
+			onAuthError?.();
+		}
+
+		if (!error) {
+			hasHandledAuthError.current = false;
+		}
+	}, [error, onAuthError]);
 
 	if (isLoading) {
 		return <p>Loading users...</p>;
 	}
 
 	if (error) {
-		return <p>Could not load users from Frappe.</p>;
+		return <p>Could not load users from Frappe. Sign in again if your session expired.</p>;
 	}
 
 	const users = (data || []).map((user) => ({
