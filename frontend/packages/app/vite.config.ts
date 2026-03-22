@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
 	return {
 		plugins: [react(), tailwindcss()],
 		server: {
-			port: 5174, // Force dev server to always use 5174.
+			port: 6767, // Force dev server to always use 6767.
 			strictPort: true, // Fail if 5173 is already taken.
 			proxy: proxyConfig
 		},
