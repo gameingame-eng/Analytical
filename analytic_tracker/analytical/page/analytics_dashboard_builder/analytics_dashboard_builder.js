@@ -14,7 +14,7 @@ frappe.pages["analytics-dashboard-builder"].on_page_load = function (wrapper) {
 	$body.empty().append(frappe.render_template("analytics_dashboard_builder"));
 
 	const actions = {
-		".js-new-dashboard": () => frappe.new_doc("Dashboard"),
+		".js-new-dashboard": () => frappe.new_doc("New Dash"),
 		".js-open-charts": () => frappe.set_route("List", "Dashboard Chart"),
 		".js-open-reports": () => frappe.set_route("List", "Report"),
 		".js-open-pages": () => frappe.set_route("List", "Page"),
