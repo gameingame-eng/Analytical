@@ -4,37 +4,28 @@
 import { ListView, Avatar } from '@rtcamp/frappe-ui-react';
 import { useFrappeGetDocList } from 'frappe-react-sdk';
 
-const dummyUsers = [
-	{
-		id: '1',
-		full_name: 'John Doe',
-		email: 'john@doe.com',
-		user_image: 'https://randomuser.me/api/portraits/men/59.jpg',
-	},
-	{
-		id: '2',
-		full_name: 'Jane Smith',
-		email: 'jane@smith.com',
-		user_image: 'https://randomuser.me/api/portraits/women/59.jpg',
-	},
-	{
-		id: '3',
-		full_name: 'John Wayne',
-		email: 'john@wayne.com',
-		user_image: 'https://randomuser.me/api/portraits/men/57.jpg',
-	},
-];
-
 const User = () => {
 	const { data, error, isLoading } = useFrappeGetDocList('User', {
-		fields: ['*'],
+		fields: ['name', 'full_name', 'email', 'user_image', 'enabled', 'user_type'],
+		orderBy: {
+			field: 'full_name',
+			order: 'asc',
+		},
 	});
 
-	const users = error ? dummyUsers : data;
-
 	if (isLoading) {
-		return <p>Loading...</p>;
+		return <p>Loading users...</p>;
 	}
+
+	if (error) {
+		return <p>Could not load users from Frappe.</p>;
+	}
+
+	const users = (data || []).map((user) => ({
+		...user,
+		full_name: user.full_name || user.email || user.name,
+		email: user.email || user.name,
+	}));
 
 	if (!users || users.length === 0) {
 		return <p>No users found.</p>;
@@ -62,11 +53,22 @@ const User = () => {
 					label: 'Email',
 					width: '200px',
 				},
+				{
+					key: 'user_type',
+					label: 'Type',
+					width: '140px',
+				},
+				{
+					key: 'enabled',
+					label: 'Status',
+					width: '120px',
+					getLabel: ({ row }) => (row.enabled ? 'Enabled' : 'Disabled'),
+				},
 			]}
 			options={{
 				emptyState: {
-					description: 'Create a new record to get started',
-					title: 'No records found',
+					description: 'Create a user in Frappe to see it here.',
+					title: 'No users found',
 				},
 				options: {
 					resizeColumn: true,
@@ -74,7 +76,7 @@ const User = () => {
 					showTooltip: true,
 				},
 			}}
-			rowKey="id"
+			rowKey="name"
 			rows={users}
 		/>
 	);
