@@ -12,7 +12,7 @@ Install the app into a Frappe bench the usual way:
 
 ```bash
 cd /path/to/your/bench
-bench get-app /path/to/analytic_tracker
+bench get-app https://github.com/gameingame-eng/Analytical.git
 bench --site your-site.local install-app analytic_tracker
 bench --site your-site.local migrate
 ```
