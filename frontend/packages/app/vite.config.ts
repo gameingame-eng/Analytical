@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
 		plugins: [react(), tailwindcss()],
 		server: {
 			port: 6767, // Force dev server to always use 6767.
-			strictPort: true, // Fail if 5173 is already taken.
+			strictPort: false, // dont Fail if 5173 is already taken.
 			proxy: proxyConfig,
 			watch: {
 				usePolling: true,
