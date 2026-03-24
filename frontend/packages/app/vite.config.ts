@@ -12,8 +12,8 @@ export default defineConfig(({ mode }) => {
 	return {
 		plugins: [react(), tailwindcss()],
 		server: {
-			port: 6767, // Force dev server to always use 6767.
-			strictPort: false, // dont Fail if 5173 is already taken.
+			port: 5174, // Default frontend dev server port.
+			strictPort: false, // Don't fail if 5174 is already taken.
 			proxy: proxyConfig,
 			watch: {
 				usePolling: true,
