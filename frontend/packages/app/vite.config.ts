@@ -33,13 +33,13 @@ const getProxy = (
 ): Record<string, string | ProxyOptions> | undefined => {
 	const env = loadEnv(mode, "../../", "");
 
-	if (!env.VITE_SITE_NAME || !env.VITE_SITE_PORT) {
+	if (!env.VITE_BASE_URL) {
 		return undefined;
 	}
 
 	return {
 		"^/(app|api|assets|files|private|socket.io)": {
-			target: `http://${env.VITE_SITE_NAME}:${env.VITE_SITE_PORT}`,
+			target: env.VITE_BASE_URL,
 			ws: true,
 			changeOrigin: true,
 			secure: false,
